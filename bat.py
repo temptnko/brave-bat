@@ -1,6 +1,4 @@
 #unusable yet: timer variable not defined, fake browsing function not done, scheduled breaks arent done, searching words function isnt done
-
-
 from humancursor import WebCursor
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
@@ -40,7 +38,7 @@ def search_words(cursor, words):
         time.sleep(0.5) 
         cursor.type(word)  # Typing the word in the search bar (idk if it looks human)
         cursor.type('\n')
-        sleep 5
+        sleep(5)
         fake_browsing(cursor) 
         
 session = 0

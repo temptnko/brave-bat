@@ -40,4 +40,4 @@ pip3 install -y selenium humancursor webdriver-manager
 chmod +x bat.py
 
 #launching the .py script
-./bat.py
+python3 bat.py
