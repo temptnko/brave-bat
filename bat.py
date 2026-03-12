@@ -1,49 +1,58 @@
-#unusable yet: timer variable not defined, fake browsing function not done, scheduled breaks arent done, searching words function isnt done
-from humancursor import WebCursor
+import pyautogui
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
-from radnom import randint
 from time import sleep
+from random import randint
 import datetime
 
-#NOT DONE!!
-#simulating browsing and looking around
-def fake_browsing(cursor):
-    cursor.move_to(randint(20-300), randint(50-200))
-    sleep(2)
-    cursor.move_to(randint(20-300), randint(50-200))
-    sleep(1)
-    cursor.move_to(randint(20-300), randint(50-200))
-    sleep(10)
-    cursor.move_to(randint(20-300), randint(50-200))
-    
-def get_words(filename):
-    with open(filename, 'r') as file:  #ts should read a search.txt file and write it in a list tht ill specify later
+
+def get_first_word(filename):
+    with open(filename, 'r') as file: 
         return file.readline().strip()
 
-words = get_words(search.txt)
+
+words = get_first_word("search.txt")
+
+def FakeBrowse():
+    pyautogui.moveTo(randint(x, y), randint(x, y))
+    pyautogui.click()
+    pyautogui.move(37)
+    #...
+
+
+def timer():
+    date = datetime.now()
+    if int(date) % 2 == 0:
+        return True
+    else:
+       return False
+
 
 options = webdriver.ChromeOptions() #this shi allows me to config this mf
 options.binary_location = "/usr/bin/brave-browser"
 driver = webdriver.Chrome(service=ChromeDriverManager().install(), options=options) #lwk dont understand but launches brave
 
-cursor = WebCursor(driver)
+is_browser_open = True
 
-#NOT DONE!!!  
-def search_words(cursor, words):
-    for word in words:
-        search_bar_position = (100, 50)  # not done but coordinates of the search bar
-        cursor.move_to(*search_bar_position)  #move to the search bar
-        cursor.click_on()
-        time.sleep(0.5) 
-        cursor.type(word)  # Typing the word in the search bar (idk if it looks human)
-        cursor.type('\n')
-        sleep(5)
-        fake_browsing(cursor)
-        
-session = 0
+while True:
+    if timer():
+        if not is_browser_open:
+            options = webdriver.ChromeOptions()
+            options.binary_location = "/usr/bin/brave-browser"
+            driver = webdriver.Chrome(service=ChromeDriverManager().install(), options=options)
+            is_browser_open = True
 
-while timer == True:
-    session += 1
-    search_words(cursor, words)
-    print(f"session {session} completed")
+        for word in words:
+            pyautogui.moveTo(x, y)
+            pyautogui.click()
+            pyautogui.typewrite(word)
+            pyautogui.press('enter')
+            sleep(randint(6, 10))
+            FakeBrowse()
+
+    else:
+        if is_browser_open:  
+            driver.quit()
+            is_browser_open = False
+           
+        sleep(60) 
