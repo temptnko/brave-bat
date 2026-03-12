@@ -33,7 +33,15 @@ cp ~/bat/1.0.227 ~/.config/BraveSoftware/Brave-Browser/BraveWallet/
 #---------------------------------
 apt install -y python3 python3-pip
 
-pip3 install -y selenium humancursor webdriver-manager
+python3 -m pip install pyautogui
+
+apt-get install scrot
+
+apt-get install python3-tk
+
+apt-get install python3-dev
+
+pip3 install -y selenium webdriver-manager
 #---------------------------------
 
 #giving permissions

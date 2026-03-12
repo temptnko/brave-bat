@@ -9,13 +9,13 @@ import datetime
 #NOT DONE!!
 #simulating browsing and looking around
 def fake_browsing(cursor):
-    cursor.move(randint(20-300), randint(50-200))
-    sleep 2
-    cursor.move(randint(20-300), randint(50-200))
-    sleep 1
-    cursor.move(randint(20-300), randint(50-200))
-    sleep 10
-    cursor.move(randint(20-300), randint(50-200))
+    cursor.move_to(randint(20-300), randint(50-200))
+    sleep(2)
+    cursor.move_to(randint(20-300), randint(50-200))
+    sleep(1)
+    cursor.move_to(randint(20-300), randint(50-200))
+    sleep(10)
+    cursor.move_to(randint(20-300), randint(50-200))
     
 def get_words(filename):
     with open(filename, 'r') as file:  #ts should read a search.txt file and write it in a list tht ill specify later
@@ -33,13 +33,13 @@ cursor = WebCursor(driver)
 def search_words(cursor, words):
     for word in words:
         search_bar_position = (100, 50)  # not done but coordinates of the search bar
-        cursor.move(*search_bar_position)  #move to the search bar
-        cursor.click()
+        cursor.move_to(*search_bar_position)  #move to the search bar
+        cursor.click_on()
         time.sleep(0.5) 
         cursor.type(word)  # Typing the word in the search bar (idk if it looks human)
         cursor.type('\n')
         sleep(5)
-        fake_browsing(cursor) 
+        fake_browsing(cursor)
         
 session = 0
 
