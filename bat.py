@@ -15,9 +15,21 @@ words = get_first_word("search.txt")
 
 def FakeBrowse():
     pyautogui.moveTo(randint(x, y), randint(x, y))
+    sleep(0.5)
     pyautogui.click()
     pyautogui.move(37)
-    #...
+    pyautogui.moveTo(x, y) #click random website link
+    sleep(1)
+    pyautogui.click()
+    pyautogui.move(randint(x, y), randint(x, y))
+    sleep(2)
+    pyautogui.type(randint([a-z])) # simulate accidental click
+    sleep(3)
+    pyautogui.move(43)
+    sleep(2)
+    pyautogui.moveTo(x, y) #navigate to the braves back arrow
+    pyautogui.click()
+    
 
 
 def timer():
