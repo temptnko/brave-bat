@@ -35,13 +35,13 @@ apt install -y python3 python3-pip
 
 python3 -m pip install pyautogui
 
-apt-get install scrot
+apt-get install -y scrot
 
-apt-get install python3-tk
+apt-get install -y python3-tk
 
-apt-get install python3-dev
+apt-get install -y python3-dev
 
-pip3 install -y selenium webdriver-manager
+pip3 install --quiet selenium webdriver-manager
 #---------------------------------
 
 #giving permissions
