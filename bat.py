@@ -2,10 +2,10 @@ import pyautogui
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from time import sleep
-from random import randint, choice
+import random
 import datetime
 
-random_char = random.choice('abcdefghijklmnopqrstuvwxyz')
+missclick = random.choice('abcdefghijklmnopqrstuvwxyz')
 
 def get_first_word(filename):
     with open(filename, 'r') as file: 
@@ -15,16 +15,16 @@ def get_first_word(filename):
 words = get_first_word("search.txt")
 
 def FakeBrowse():
-    pyautogui.moveTo(randint(x, y), randint(x, y))
+    pyautogui.moveTo(random.randint(x, y), random.randint(x, y))
     sleep(0.5)
     pyautogui.click()
     pyautogui.move(37)
     pyautogui.moveTo(x, y) #click random website link
     sleep(1)
     pyautogui.click()
-    pyautogui.move(randint(x, y), randint(x, y))
+    pyautogui.move(random.randint(x, y), random.randint(x, y))
     sleep(2)
-    pyautogui.typewrite(random_char) # simulate accidental click
+    pyautogui.typewrite(missclick) # simulate accidental click
     sleep(3)
     pyautogui.move(43)
     sleep(2)
@@ -54,7 +54,7 @@ while True:
                 driver = OpenBrowser()  
                 is_browser_open = True
             except Exception as e:
-                print("Error opening the browser:", e)
+                print("Error ur shit doesnt work:", e)
     else:
         if is_browser_open:
             driver.quit() 
@@ -62,11 +62,11 @@ while True:
 
     if is_browser_open: 
         for word in words:
-            pyautogui.moveTo(randint(0, x), randint(0, y))  
+            pyautogui.moveTo(random.randint(0, x), random.randint(0, y))  
             pyautogui.click()
             pyautogui.typewrite(word)
             pyautogui.press('enter')
-            sleep(randint(6, 10))
+            sleep(random.randint(6, 10))
             FakeBrowse()
 
     sleep(60)
