@@ -36,9 +36,9 @@ apt install -y brave-browser
 #----------------------------------
 
 #link wallet database
-rm -rf ~/.config/BraveSoftware/Brave-Browser/BraveWallet/*
+#rm -rf ~/.config/BraveSoftware/Brave-Browser/BraveWallet/*
 
-cp ~/bat/1.0.227 ~/.config/BraveSoftware/Brave-Browser/BraveWallet/
+#cp ~/bat/1.0.227 ~/.config/BraveSoftware/Brave-Browser/BraveWallet/
 #-------------------------------------------
 #giving permissions
 chmod +x bat.py
