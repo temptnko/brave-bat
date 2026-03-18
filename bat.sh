@@ -2,6 +2,17 @@
 #updating system
 apt -y update && apt -y upgrade
 
+#installing python3 and libraries
+#---------------------------------
+apt install python3-venv
+
+python3 -m venv myenv
+
+source myenv/bin/activate
+
+pip install pyautogui selenium webdriver-manager
+#--------------------------------
+
 #making the words to search
 echo "angry-birds, jeans, GANT, VPN, 
 Quantum, Fungi, Asteroid, Cryptocurrency, 
@@ -28,17 +39,7 @@ apt install -y brave-browser
 rm -rf ~/.config/BraveSoftware/Brave-Browser/BraveWallet/*
 
 cp ~/bat/1.0.227 ~/.config/BraveSoftware/Brave-Browser/BraveWallet/
-
-#installing python3 and libraries
-#---------------------------------
-apt install python3-venv
-
-python3 -m venv myenv
-
-source myenv/bin/activate
-
-pip install pyautogui selenium webdriver-manager
-#--------------------------------
+#-------------------------------------------
 #giving permissions
 chmod +x bat.py
 

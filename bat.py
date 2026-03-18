@@ -30,12 +30,12 @@ def FakeBrowse():
     sleep(2)
     pyautogui.moveTo(x, y) #navigate to the braves back arrow
     pyautogui.click()
-    
 
 
 def timer():
     current_time = datetime.datetime.now()
     return current_time.hour % 2 == 0 
+
 
 def OpenBrowser():
     options = webdriver.ChromeOptions() #this shi allows me to config this mf
@@ -44,6 +44,7 @@ def OpenBrowser():
     is_browser_open = True
     return driver
 
+
 is_browser_open = False
 
 
@@ -51,7 +52,7 @@ while True:
     if timer():
         if not is_browser_open:
             try:
-                driver = OpenBrowser()  
+                driver = OpenBrowser()
                 is_browser_open = True
             except Exception as e:
                 print("Error ur shit doesnt work:", e)
